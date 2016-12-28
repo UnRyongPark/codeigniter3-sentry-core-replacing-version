@@ -19,6 +19,8 @@ How To Install
 5. place `application/core/Log.php` into your `application/core/` folder 
 6. Use the same as codeigniter's log_message! Enjoy!
 
+※ If the speed is too slow, try lowering log_threshold or setting curl_method in sentry_config! [curl_method info](https://github.com/getsentry/raven-php#curl_method)
+
 * * *
 
 # 한국어(korean)
@@ -34,9 +36,11 @@ Core Class Replacing 관련한 내용은 [링크](http://www.ciboard.co.kr/user_
     `composer require "sentry/sentry"`
 3. `/application/config/config.php` 파일에 있는 sentry 부분을 복사해서 적용하실 config파일에 삽입합니다.
 4. 설정값을 변경합니다.
-    * `$config['log_threshold']`는 Codeigniter에서 사용하는 설정과 동일합니다.
-    * `$config['log_path']`을 문자열 `'sentry'`로 설정해주세요.(ex. `$config['log_path'] = 'sentry'`)
+    * `$config['log_threshold']`는 Codeigniter에서 사용하는 설정과 동일합니다.(추천은 1 - error 이나 0 - off 입니다.)
+    * `$config['log_path']`를 문자열 `'sentry'`로 설정해주세요.(ex. `$config['log_path'] = 'sentry'`)
     * `$config['sentry_client']`에 사용하실 DSN를 입력해주세요. Sentry 사이트에 가시면 확인하실 수 있습니다.(such as [Sentry](https://sentry.io))
     * `$config['sentry_config']` sentry에는 추가로 설정할 수 있는 설정 값들이 있습니다. 원하는 내용을 링크에서 확인하셔서 입력하시면 됩니다. [link](https://github.com/getsentry/raven-php#configuration) and [sentry doc](https://docs.sentry.io/clients/php/config/)
 5. `/application/core/Log.php` 파일을 당신의 `/application/core/`폴더에 복사해주세요.
 6. 기존에 사용하시던 codeigniter의 log_message와 동일하게 사용하시면 됩니다.
+
+※ 만약에 속도가 너무 느리다면 log_threshold를 낮춰보거나 sentry_config에 curl_method를 설정해보세요! [curl_method info](https://github.com/getsentry/raven-php#curl_method)
